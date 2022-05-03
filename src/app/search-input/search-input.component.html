@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+    <div fd-form-item>
+        <input fd-form-control formControlName="searchInput" type="text" #citySearchInput
+            placeholder="Type any city name" />
+    </div>
+</form>
+
+<section style="margin: 25px 0px">
+    <app-city-card [city]="(results$ | async)?.citiesToDisplay"></app-city-card>
+</section>

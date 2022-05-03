@@ -1,0 +1,7 @@
+<div *ngIf="(root$ | async)?.favoriets?.length; else noFavoriets">
+    <app-city-card *ngFor="let c of (root$ | async)?.favoriets" [city]="c" [isRemoveAailable]="true"></app-city-card>
+</div>
+
+<ng-template #noFavoriets>
+    <div>No Favoriets</div>
+</ng-template>

@@ -1,0 +1,64 @@
+<fd-card *ngIf="city && city?.weather; else noCityFound">
+    <fd-card-header>
+        <fd-avatar image="http://openweathermap.org/img/wn/{{cityIcon}}@2x.png" [circle]="true" size="s"
+            ariaLabel="avatar image" title="weather image"></fd-avatar>
+        <h2 fd-card-title>{{name}}, {{country}}</h2>
+        <h3 fd-card-subtitle>{{temperature}}°С</h3>
+    </fd-card-header>
+    <fd-card-content>
+        <div [ngSwitch]="isEditMode">
+            <ng-container *ngSwitchCase="false">
+                <ng-container *ngTemplateOutlet="editModeFalse"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="true">
+                <ng-container *ngTemplateOutlet="editModeTrue"></ng-container>
+            </ng-container>
+            <ng-template ngSwitchDefault>
+                <ng-container *ngTemplateOutlet="editModeFalse"></ng-container>
+            </ng-template>
+        </div>
+    </fd-card-content>
+    <div fd-bar barDesign="footer">
+        <div fd-bar-right>
+            <fd-toolbar size="compact" fdType="transparent" [clearBorder]="true" style="display: flex; flex-wrap: wrap">
+                <div fd-card-counter>
+                    <button fd-toolbar-item fd-button [compact]="true" (click)="addToFavorites()">{{isRemoveAailable ?
+                        'Remove from'
+                        : 'Add to'}} Favorites</button>
+                </div>
+                <button *ngIf="isRemoveAailable" fd-toolbar-item fd-button fdType="negative" [compact]="true"
+                    (click)="editMode()">{{isEditMode ?
+                    'Done' : 'Edit'}}</button>
+            </fd-toolbar>
+        </div>
+    </div>
+</fd-card>
+
+<ng-template #noCityFound>
+    <div *ngIf="city">city not found</div>
+</ng-template>
+
+<ng-template #editModeTrue>
+    <form [formGroup]="form">
+        <div *ngFor="let e of editValuesArray">
+            <div style="margin: 10px;">
+                <fd-info-label [label]="e.label" [color]="'5'" [title]="e.label"></fd-info-label>
+            </div>
+            <div fd-form-item style="margin: 10px;">
+                <input fd-form-control [formControlName]="e.formControl" type="number" />
+            </div>
+        </div>
+    </form>
+</ng-template>
+
+<ng-template #editModeFalse>
+    <ul fd-list [noBorder]="true">
+        <li fd-list-item>
+            <fd-quick-view-group-item-content>
+                <p>temperature from {{minTemp}} to {{maxTemp}} °С, wind
+                    {{speed}} m/s.
+                </p>
+            </fd-quick-view-group-item-content>
+        </li>
+    </ul>
+</ng-template>

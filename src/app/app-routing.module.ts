@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { SearchInputComponent } from './search-input/search-input.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'search', component: SearchInputComponent },
+  { path: 'favoriets', component: FavoritesComponent },
+  { path: '', redirectTo: 'search', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

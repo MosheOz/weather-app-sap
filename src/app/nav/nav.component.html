@@ -1,0 +1,10 @@
+<fd-shellbar [size]="'l'">
+    <fd-shellbar-logo>
+        <img src="assets/images/logo.jpg" class="fd-shellbar__logo" />
+    </fd-shellbar-logo>
+    <fd-shellbar-actions>
+        <fd-shellbar-action *ngFor="let action of actions" [glyph]="action.glyph" [callback]="action.callback"
+            [label]="action.label">
+        </fd-shellbar-action>
+    </fd-shellbar-actions>
+</fd-shellbar>
