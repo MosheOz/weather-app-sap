@@ -8,6 +8,7 @@ export function addToFavoritesHelper(state: State, city: ICity): State {
   }
   return {
     ...state,
+    citiesToDisplay: null,
     favoriets: [...state.favoriets, city],
   };
 }
@@ -19,6 +20,7 @@ export function removeFromFavoritesHelper(state: State, city: ICity): State {
 
   return {
     ...state,
+    citiesToDisplay: null,
     favoriets: [...newFavorietsState],
   };
 }
