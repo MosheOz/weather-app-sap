@@ -9,7 +9,7 @@ export class ToastService {
 
   open(value: string): void {
     this.messageToastService.open(value, {
-      duration: 5000,
+      duration: 2000,
     });
   }
 }

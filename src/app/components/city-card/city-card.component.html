@@ -1,4 +1,4 @@
-<fd-card *ngIf="city && city?.weather; else noCityFound">
+<fd-card *ngIf="city && city?.weather; else noCityFound" style="margin-bottom: 15px;">
     <fd-card-header>
         <fd-avatar image="http://openweathermap.org/img/wn/{{cityIcon}}@2x.png" [circle]="true" size="s"
             ariaLabel="avatar image" title="weather image"></fd-avatar>
