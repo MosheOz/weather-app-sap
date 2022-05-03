@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 import { requestCity, loadResults } from './store.actions';
-import { SearchService } from '../search.service';
+import { SearchService } from '../services/search.service';
 import { of } from 'rxjs';
 import { ICity } from '../types/city.interface';
 

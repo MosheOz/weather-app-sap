@@ -11,10 +11,9 @@ import {
   pluck,
 } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { State } from 'src/app/store/store.reducer';
+import { requestCity } from 'src/app/store/store.actions';
 
-import { SearchService } from '../search.service';
-import { State } from '../store/store.reducer';
-import { requestCity } from '../store/store.actions';
 
 @Component({
   selector: 'app-search-input',

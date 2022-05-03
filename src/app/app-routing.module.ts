@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FavoritesComponent } from './favorites/favorites.component';
-import { SearchInputComponent } from './search-input/search-input.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchInputComponent },

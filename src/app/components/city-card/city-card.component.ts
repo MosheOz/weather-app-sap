@@ -11,10 +11,10 @@ import {
   addToFavoriets,
   editFromFavoriets,
   removeFromFavoriets,
-} from '../store/store.actions';
-import { State } from '../store/store.reducer';
-import { ToastService } from '../toast.service';
-import { ICity } from '../types/city.interface';
+} from '../../store/store.actions';
+import { State } from '../../store/store.reducer';
+import { ToastService } from '../../services/toast.service';
+import { ICity } from '../../types/city.interface';
 
 @Component({
   selector: 'app-city-card',
